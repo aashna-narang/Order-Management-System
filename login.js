@@ -4,6 +4,7 @@ function login() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
+    //  array with objects
     var registeredID = [{
             
             "email": "sonu@gmail.com",
