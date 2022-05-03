@@ -142,8 +142,7 @@
                                     <div class="div1">
                                         <strong>ACME Corp</strong>
                                     </div>
-                                    <div>1908 Progress Way,</div>
-                                    <div> Alburnett, lowa-52202,USA.</div>
+                                    <div id="address">1908 Progress Way, Alburnett, lowa-52202,USA.</div>
                                     <div>Email: admin@acme.com</div>
                                     <div>Phone: +48 123 456 789</div>
                                     <div>Fax: +44 134 234 5647</div>
@@ -152,26 +151,39 @@
                                     <h6 class="mb-3">Reciever's Address:</h6>
                                     <div class="div2">
                                         <div>
-                                            <strong>James Harden</strong>
+                                            <strong id="username">James Harden</strong>
                                         </div>
-                                        <div>42, Awesome Enclave</div>
-                                        <div>New York City, New york, 10394</div>
-                                        <div>Email: james1992@gmail.com</div>
-                                        <div>Phone: +48 123 400 527</div>
-                                        <div>Fax: +44 161 999 8888</div>
+                                        <div>
+                                            <strong id="raddress">42, Awesome Enclave, New York City,10394</strong>
+                                        </div>
+                                        <div>Email: 
+                                            <strong id="_email">james1992@gmail.com</strong>
+                                        </div>
+                                        <div>Phone:
+                                            <strong id="phones">+48 123 400 527</strong>
+                                        </div>
+                                        <div>Fax: 
+                                            <strong id="faxs">161 999 8888</strong> 
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <h6 class="mb-3">Details:</h6>
                                     <div class="div3">
                                         <div>Invoice Number:
-                                            <strong>102789</strong>
+                                            <strong id="innum">102789</strong>
                                         </div>
-                                        <div> Date: April 14, 2022</div>
-                                        <div> Status: Committed</div>
-                                        <div>VAT: NYC 09090390</div>
-                                        <div>
-                                            <strong>SWIFT code: 99 8888 7777 6666 5555</strong>
+                                        <div> Date:
+                                            <strong id="dates"> April 14, 2022</strong> 
+                                        </div>
+                                        <div> Status:
+                                          <strong id="statuss">Active</strong>
+                                        </div>
+                                        <div>VAT: 
+                                            <strong id="vatss">NYC 09090390</strong>
+                                        </div>
+                                        <div>SWIFT code:
+                                            <strong id="swiftcodes">99 8888 7777 6666 5555</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -214,7 +226,7 @@
                                     <th class="border-top-0">Total</th>
                                 </tr>
                             </thead>
-                            <tbody id="_detailed_list">
+                            <tbody id="detailedlist">
 
                             </tbody>
                         </table>
@@ -226,11 +238,11 @@
                                 <tbody>
                                     <tr>
                                         <td class="left">
-                                            <strong>Subtotal</strong>
+                                            <strong>Total Cost</strong>
                                         </td>
                                         <td class="right" id="subtotal"></td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td class="left">
                                             <strong>Discount (20%)</strong>
                                         </td>
@@ -241,19 +253,19 @@
                                             <strong>VAT (10%)</strong>
                                         </td>
                                         <td class="right" id="vat">$679,76</td>
-                                    </tr>
-                                    <tr>
+                                    </tr> -->
+                                    <!-- <tr>
                                         <td class="left">
                                             <strong>Total</strong>
                                         </td>
                                         <td class="right">
                                             <strong id="total">$7.477,36</strong>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
-                            <a class="btn btn-success " href="#">
-                                <i class="fa fa-usd"></i>Proceed to Payment</a>
+                            <!-- <a class="btn btn-success " href="#">
+                                <i class="fa fa-usd"></i>Proceed to Payment</a> -->
                         </div>
                     </div>
                 </div>
@@ -289,11 +301,12 @@
 
                                         </select>
                                     </div>
+            
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <div class="col-md-10 mb-3">Description:
-                                        <textarea class="form-control" rows="1" id=""
+                                        <textarea class="form-control" rows="1" id="description"
                                             aria-label="readonly input example" readonly></textarea>
                                     </div>
 
@@ -302,14 +315,15 @@
                                 <div class="row justify-content-center">
 
                                     <div class="col-md-10 mb-3" style="margin-left: 0px;">Quantity:
-                                        <input class="form-control" type="text" placeholder=""
+                                        <input class="form-control" type="text" placeholder="" id="quantity"
                                             aria-label="default input example">
+                                        <span id="pass-error" style="display: none">Empty / Invalid Password</span>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <div class="col-md-10  mb-3" style="margin-left: 0px;">Unit Cost:
-                                        <input class="form-control" type="text" value=""
+                                        <input class="form-control" type="text" value="" id="unitcost"
                                             aria-label="readonly input example" readonly>
                                     </div>
 
@@ -321,7 +335,7 @@
 
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Add
+                                <button type="button" class="btn btn-primary" id="_addproduct" data-bs-dismiss="modal">Add
                                     Product
                                 </button>
                             </div>
@@ -340,51 +354,56 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="../js/products.js"></script>
-
+    <script src="../js/users.js"></script>
+    <script src="../js/view.js"></script>
     <script>
-        var baseUrl = (window.location).href; // You can also use document.URL
-        var pid = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
-        var invoicehtmlList = "";
-        const invoiceArray = JSON.parse(localStorage.getItem("records"));
-        console.log(invoiceArray);
-        let subtotal = 0;
-        let total = 0;
-        let discount = 0;
-        let vat = 0;
-        invoiceArray && invoiceArray.find((val, index) => {
-            if (val.srno == pid) {
-                product = JSON.parse(val.product_ref);
+        console.log(window.location.search)
+        console.log(typeof JSON.parse(window.localStorage.getItem('records')))
+        
+        let srnos = parseInt(window.location.search.split("=")[1])
+        console.log(typeof srnos)
+        
+        console.log(window.location.search.split("="))
 
-                if (product.length > 0) {
-                    product.map(value => {
+        console.log(JSON.parse(window.localStorage.getItem('records'))[srnos])
 
-                        subtotal += parseFloat(value.subtotal);
-                        total += parseFloat(value.total);
-                        discount += parseFloat(value.discount);
-                        vat += parseFloat(value.vat);
+        let records = JSON.parse(window.localStorage.getItem('records'))
+        console.log(records[srnos-1])
 
-                        invoicehtmlList += `  <tr>
-                                    <td class="center">`+ value._id + `</td>
-                                    <td class="left">`+ value.name + `</td>
-                                    <td class="left">`+ value.description + `</td>
-                                    <td class="center">`+ value.qty + `</td>
-                                    <td class="right">$`+ value.subtotal + `</td>
-                                    <td class="right">$`+ value.total + `</td>
-                                </tr>`;
-                    });
+        let item = records[srnos-1]
+        document.getElementById("username").innerHTML=item.account_name
+        document.getElementById("raddress").innerHTML=item.address
+        document.getElementById("phones").innerHTML=item.phone
+        document.getElementById("faxs").innerHTML=item.fax
+        document.getElementById("_email").innerHTML=item.email
 
-                    total = subtotal + (parseFloat(vat) + parseFloat(discount));
-                    document.getElementById("subtotal").innerHTML = "$" + subtotal;
-                    document.getElementById("total").innerHTML = "$" + total;
-                    document.getElementById("discount").innerHTML = "$" + discount;
-                    document.getElementById("vat").innerHTML = "$" + vat;
-                }
-
-            }
-
-        });
-        document.getElementById("_detailed_list").innerHTML = invoicehtmlList;
+        document.getElementById("innum").innerHTML=item.invoice_number
+        document.getElementById("dates").innerHTML=item.date
+        document.getElementById("statuss").innerHTML=item.status
+        document.getElementById("vatss").innerHTML=item.vat      
+        document.getElementById("swiftcodes").innerHTML=item.swift_code
+        
+        
+       
+        
     </script>
+    
+    
+    <!-- <script>
+
+        $('#staticBackdrop2').on('shown.bs.modal', function () {
+            document.getElementById("_demo").reset();
+
+            // document.getElementById("_qty").readOnly = true;
+            document.getElementById("_description").readOnly = true;
+            document.getElementById("_unitcost").readOnly = true;
+            document.getElementById("_subtotal").readOnly = true;
+            document.getElementById("_discount").readOnly = true;
+            document.getElementById("_vat").readOnly = true;
+            document.getElementById("_total").readOnly = true;
+        })
+
+    </script> -->
 </body>
 
 </html>
