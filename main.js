@@ -54,7 +54,7 @@ function print_invoice_list() {
                             <td>` + invoice.date + `</td>
                             <td scope="row">` + invoice.status + `</th>
                             <td>$` + total + `</td>
-                            <td><a href="/order Managment/viewdetails.html?pid=` + invoice.srno + `" class="btn"
+                            <td><a href="viewdetails.html?pid=` + invoice.srno + `" class="btn"
                                     style="padding: 2%; color: white; background-color: #1d487b;"
                                     role="button">View
                                     Details</a></td>
