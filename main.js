@@ -9,7 +9,6 @@ users.map(user => {
 userElement.innerHTML = userhtmlList;
 
 
-
 /**
  * Events
  */
@@ -102,22 +101,38 @@ srno = (a[a.length - 1])['srno'];
 // }
 // });
 
-SaveDataToLocalStorage({
-srno: ++srno,
-invoice_number: document.getElementById("_invoice").value,
-account_name: document.getElementById("_accounts").options[document.getElementById("_accounts").value].text,
-date: document.getElementById("datepicker").value,
-status: document.getElementById("_status").value,
-vat: document.getElementById("_vat").value,
-fax: document.getElementById("_fax").value,
-email:  document.getElementById("_email").value,
-phone: document.getElementById("_phone").value,
-swift_code: document.getElementById("_swiftcode").value,
-address:  document.getElementById("_address").value,
-// total_cost: document.getElementById("_total").value,
-// product_ref: JSON.stringify(pArray),
+if(!document.getElementById("datepicker").value){
+    document.getElementById("datepicker").style.borderColor = "red";
+}
+if(document.getElementById("_accounts").value === "-Select-"){
+    document.getElementById("_accounts").style.borderColor = "red";
+}
+if(document.getElementById("datepicker").value){
+    document.getElementById("datepicker").style.borderColor = "#e9ecef";
+}
+if(document.getElementById("_accounts").value !== "-Select-"){
+    document.getElementById("_accounts").style.borderColor = "#e9ecef";
+}
+if(document.getElementById("datepicker").value && document.getElementById("_accounts").value !== "-Select-"){
+ 
+    SaveDataToLocalStorage({
+    srno: ++srno,
+    invoice_number: document.getElementById("_invoice").value,
+    account_name: document.getElementById("_accounts").options[document.getElementById("_accounts").value].text,
+    date: document.getElementById("datepicker").value,
+    status: document.getElementById("_status").value,
+    vat: document.getElementById("_vat").value,
+    fax: document.getElementById("_fax").value,
+    email:  document.getElementById("_email").value,
+    phone: document.getElementById("_phone").value,
+    swift_code: document.getElementById("_swiftcode").value,
+    address:  document.getElementById("_address").value,
+    // total_cost: document.getElementById("_total").value,
+    // product_ref: JSON.stringify(pArray),
+    });
+    print_invoice_list();
+    ++srno;
+}
 });
-print_invoice_list();
-++srno;
-});
+
 print_invoice_list();
