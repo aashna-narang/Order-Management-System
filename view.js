@@ -72,13 +72,32 @@ function SaveDataToLocalStorage(data) {
 }
 
 let srno = 0;
-
+document.getElementById("addProductModal").addEventListener("click", function () {
+    document.getElementById("statusId").style.borderColor = "#e9ecef";
+    document.getElementById("quantity").style.borderColor = "#e9ecef";
+    document.getElementById("statusId").value = "-Select-"
+    document.getElementById("description").value = ""
+    document.getElementById("quantity").value = ""
+    document.getElementById("unitcost").value = ""
+})
 document.getElementById("_addproduct").addEventListener("click", function () {
-
+    if(!document.getElementById("quantity").value){
+        document.getElementById("quantity").style.borderColor = "red";
+    }
+    if(document.getElementById("statusId").value === "-Select-"){
+        document.getElementById("statusId").style.borderColor = "red";
+    }
+    if(document.getElementById("quantity").value){
+        document.getElementById("quantity").style.borderColor = "#e9ecef";
+    }
+    if(document.getElementById("statusId").value !== "-Select-"){
+        document.getElementById("statusId").style.borderColor = "#e9ecef";
+    }
     a = JSON.parse(localStorage.getItem('prod')) || [];
     if (a.length)
         srno = (a[a.length - 1])['srno'];
-
+    
+    if(document.getElementById("quantity").value && document.getElementById("statusId").value !== "-Select-"){
 
     let pArray = [];
     let productRef = document.getElementById("statusId").value;
@@ -125,11 +144,26 @@ document.getElementById("_addproduct").addEventListener("click", function () {
 
         }
     });
+    let detailedlist = JSON.parse(localStorage.getItem("prod")) ? JSON.parse(localStorage.getItem("prod")) : [];
+    // filters data based on userId and returns array of the same user
+    let items = detailedlist.filter(item => item.userId === parseInt(window.location.search.split("=")[1]))
+    let itemIndex = items.findIndex(item => item.product_name === products[document.getElementById("statusId").value - 1].name)
+    let duplicate = [...items]
     
+    if(itemIndex !== -1 && duplicate.length){
+        
+       duplicate[itemIndex].quantity = parseInt(duplicate[itemIndex].quantity) + parseInt(document.getElementById("quantity").value)
+       duplicate[itemIndex].total = document.getElementById("unitcost").value * duplicate[itemIndex].quantity
+      
+        localStorage.setItem('prod', JSON.stringify(duplicate));
+        print_detailed_list();
+    } else{ 
+        
 
    
-
+   
     SaveDataToLocalStorage({
+        
         srno: ++srno,
         // invoice_number: document.getElementById("_invoice").value,
         // account_name: document.getElementById("_accounts").options[document.getElementById("_accounts").value].text,
@@ -156,6 +190,7 @@ document.getElementById("_addproduct").addEventListener("click", function () {
     });
     print_detailed_list();
     ++srno;
+} }
 });
 print_detailed_list();
 
